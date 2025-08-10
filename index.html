@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ใส่รหัสก่อนเข้า 💖</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #fff0f5;
+    }
+    #lockScreen {
+      background: white;
+      display: inline-block;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    input {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      width: 200px;
+      text-align: center;
+    }
+    button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #ff85c1;
+    }
+    #content {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="lockScreen">
+  <h2>💌 ใส่รหัสวันที่ขอเป็นแฟน 💌</h2>
+  <input type="password" id="pass" placeholder="dd/mm/yyyy"><br>
+  <button onclick="checkPass()">เข้าสู่เว็บ</button>
+</div>
+
+<div id="content">
+  <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
+      padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+      border-radius: 8px; will-change: transform;">
+    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+      src="https://www.canva.com/design/DAGvrBdVDSI/G3tcASzPhSr5YJZQzuJMVQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+    </iframe>
+  </div>
+  <a href="https://www.canva.com/design/DAGvrBdVDSI/G3tcASzPhSr5YJZQzuJMVQ/view?utm_content=DAGvrBdVDSI&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">ชอบแล้ว</a> by chotiwat wongwai
+</div>
+
+<script>
+function checkPass() {
+  let input = document.getElementById('pass').value.trim();
+  if (input === "14/5/2025") {
+    document.getElementById('lockScreen').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  } else {
+    alert("รหัสไม่ถูกนะจ๊ะ 🥺");
+  }
+}
+</script>
+
+</body>
+</html>
