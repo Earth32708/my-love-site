@@ -2,13 +2,15 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ใส่รหัสก่อนเข้า 💖</title>
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
-      padding: 50px;
+      padding: 20px;
       background-color: #fff0f5;
+      margin: 0;
     }
     #lockScreen {
       background: white;
@@ -16,40 +18,71 @@
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 90%;
+      width: 300px;
     }
     input {
-      padding: 10px;
+      padding: 12px;
       border-radius: 5px;
       border: 1px solid #ccc;
-      margin-bottom: 10px;
-      width: 200px;
+      margin-bottom: 15px;
+      width: 80%;
+      max-width: 200px;
       text-align: center;
+      font-size: 16px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    input:focus {
+      outline: 2px solid #ff69b4;
+      border-color: #ff69b4;
     }
     button {
       background-color: #ff69b4;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
+      width: 80%;
+      max-width: 200px;
+      touch-action: manipulation;
     }
-    button:hover {
+    button:hover, button:active {
       background-color: #ff85c1;
     }
     #content {
       display: none;
+      padding: 20px;
+    }
+    
+    /* Mobile specific styles */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      #lockScreen {
+        padding: 20px;
+        width: 95%;
+      }
+      input, button {
+        width: 90%;
+        font-size: 16px;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
     }
   </style>
 </head>
 <body>
-
 <div id="lockScreen">
   <h2>💌 ใส่รหัสวันที่ขอเป็นแฟน 💌</h2>
-  <input type="password" id="pass" placeholder="dd/mm/yyyy"><br>
+  <input type="text" id="pass" placeholder="dd/mm/yyyy" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><br>
   <button onclick="checkPass()">เข้าสู่เว็บ</button>
 </div>
-
 <div id="content">
   <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
       padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
@@ -60,19 +93,30 @@
   </div>
   <a href="https://www.canva.com/design/DAGvrBdVDSI/G3tcASzPhSr5YJZQzuJMVQ/view?utm_content=DAGvrBdVDSI&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">ชอบแล้ว</a> by chotiwat wongwai
 </div>
-
 <script>
 function checkPass() {
   let input = document.getElementById('pass').value.trim();
+  console.log('Input received:', input); // For debugging
+  
   if (input === "14/05/2025") {
     document.getElementById('lockScreen').style.display = 'none';
     document.getElementById('content').style.display = 'block';
   } else {
     alert("รหัสไม่ถูกนะจ๊ะ 🥺");
+    document.getElementById('pass').value = ''; // Clear input
+    document.getElementById('pass').focus(); // Focus back to input
   }
 }
+
+// Allow Enter key to submit
+document.getElementById('pass').addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    checkPass();
+  }
+});
+
+// Prevent form zoom on iOS
+document.addEventListener('touchstart', function() {}, true);
 </script>
-
 </body>
-
 </html>
