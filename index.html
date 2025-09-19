@@ -79,8 +79,8 @@
 </head>
 <body>
 <div id="lockScreen">
-  <h2>💌 ใส่รหัสวันที่ขอเป็นแฟน 💌</h2>
-  <input type="text" id="pass" placeholder="dd/mm/yyyy" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><br>
+  <h2>💌 ใส่รหัสวันเกิดเธอ 💌</h2>
+  <input type="text" id="pass" placeholder="dd/mm/yyyy e.g.01/01/2000" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><br>
   <button onclick="checkPass()">เข้าสู่เว็บ</button>
 </div>
 <div id="content">
@@ -98,7 +98,7 @@ function checkPass() {
   let input = document.getElementById('pass').value.trim();
   console.log('Input received:', input); // For debugging
   
-  if (input === "14/05/2025") {
+  if (input === "22/03/2003") {
     document.getElementById('lockScreen').style.display = 'none';
     document.getElementById('content').style.display = 'block';
   } else {
@@ -120,3 +120,4 @@ document.addEventListener('touchstart', function() {}, true);
 </script>
 </body>
 </html>
+
